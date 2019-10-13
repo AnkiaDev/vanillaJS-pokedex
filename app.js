@@ -1,6 +1,4 @@
 const pokedex = document.getElementById("pokedex");
-console.log(pokedex);
-
 
 const fetchPokemon = () => {
   const promises = [];
@@ -17,11 +15,31 @@ const fetchPokemon = () => {
       type: data.types.map(type => type.type.name).join(", ")
     }));
     displayPokemon(pokemon);
+    console.log(pokemon)
   });
 };
 
-const displayPokemon = pokemon => {
-  console.log(pokemon);
+const displayPokemon = (pokemon) => {
+  pokemon.map((poke)=> {
+
+    const listElt = document.createElement("li");
+
+    const imgElt = document.createElement("img");
+    imgElt.src = `${poke.img}`;
+
+    const nameElt = document.createElement("h3");
+    nameElt.textContent = `"${poke.id}.${poke.name}"`;
+
+    const typeElt = document.createElement("p");
+    typeElt.textContent = `"${poke.type}"`;
+
+    listElt.appendChild(imgElt);
+    listElt.appendChild(nameElt);
+    listElt.appendChild(typeElt);
+
+    pokedex.appendChild(listElt);
+    
+  })
 };
 
 fetchPokemon();
