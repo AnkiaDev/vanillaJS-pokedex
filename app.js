@@ -28,10 +28,10 @@ const displayPokemon = (pokemon) => {
     imgElt.src = `${poke.img}`;
 
     const nameElt = document.createElement("h3");
-    nameElt.textContent = `"${poke.id}.${poke.name}"`;
+    nameElt.textContent = `${poke.id}. ${poke.name}`;
 
     const typeElt = document.createElement("p");
-    typeElt.textContent = `"${poke.type}"`;
+    typeElt.textContent = `${poke.type}`;
 
     listElt.appendChild(imgElt);
     listElt.appendChild(nameElt);

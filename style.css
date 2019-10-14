@@ -1,4 +1,22 @@
+body {
+    background-color: orangered;
+}
 h1 {
-    color: red;
+    color: white;
     text-align: center;
+}
+
+ol {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+li {
+    list-style: none;
+    height: 14rem;
+    width: 12rem;
+    text-align: center;
+    margin: .7rem;
+    border-radius: 5px;
+    background-color: bisque;
 }
