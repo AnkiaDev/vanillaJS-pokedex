@@ -16,6 +16,16 @@ main {
     margin: 0 auto;
 }
 
+button {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: orangered;
+    font-size: 15px;
+    color: white;
+}
+
+
 #pokedex {
     padding-inline-start: 0;
     display: grid;
