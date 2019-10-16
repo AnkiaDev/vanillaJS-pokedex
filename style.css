@@ -16,6 +16,18 @@ main {
     margin: 0 auto;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+}
+
+#searchPoke {
+    margin: 2rem auto;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
 button {
     border: 1px solid transparent;
     border-radius: 5px;
@@ -32,6 +44,8 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
+
+
 
 .card {
     list-style: none;
