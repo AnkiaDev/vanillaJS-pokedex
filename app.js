@@ -1,4 +1,5 @@
 const pokedex = document.getElementById("pokedex");
+const searchBar = document.getElementById("searchPoke");
 
 const fetchPokemon = async () => {
   const url = `https://pokeapi.co/api/v2/pokemon?limit=151`;
@@ -10,22 +11,27 @@ const fetchPokemon = async () => {
       1}.png`,
     id: index + 1
   }));
-  searchPoke(pokemon);
-};
 
-const searchPoke = pokemon => {
-  const searchBar = document.getElementById("searchPoke");
+  if (searchBar.value.length === 0) {
+    displayPokemon(pokemon);
+  } 
+  else {
+    const filteredPoke = pokemon.filter(poke => {
+      return poke.name.toLowerCase().includes(searchBar.value.toLowerCase());
+    });
+    displayPokemon(filteredPoke);
+  }
+
   searchBar.addEventListener("input", event => {
-    if (event.target.value) {
-      const filterPoke = pokemon.filter(poke => {
-        poke.name.toLowerCase().includes(event.target.value.toLowerCase());
-        displayPokemon(filterPoke);
-      });
-    } else {
-      displayPokemon(pokemon);
-    }
+    let filteredPoke = pokemon.filter(poke => {
+      return poke.name.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+    pokedex.innerHTML = "";
+    displayPokemon(filteredPoke);
   });
 };
+
+
 
 const displayPokemon = pokemon => {
   pokemon.map(poke => {
