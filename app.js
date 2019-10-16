@@ -10,7 +10,21 @@ const fetchPokemon = async () => {
       1}.png`,
     id: index + 1
   }));
-  displayPokemon(pokemon);
+  searchPoke(pokemon);
+};
+
+const searchPoke = pokemon => {
+  const searchBar = document.getElementById("searchPoke");
+  searchBar.addEventListener("input", event => {
+    if (event.target.value) {
+      const filterPoke = pokemon.filter(poke => {
+        poke.name.toLowerCase().includes(event.target.value.toLowerCase());
+        displayPokemon(filterPoke);
+      });
+    } else {
+      displayPokemon(pokemon);
+    }
+  });
 };
 
 const displayPokemon = pokemon => {
@@ -76,6 +90,6 @@ const displayPopup = poke => {
 const closePopup = () => {
   pokedex.innerHTML = "";
   fetchPokemon();
-}
+};
 
 fetchPokemon();
